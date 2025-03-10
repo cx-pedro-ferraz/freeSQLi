@@ -1,0 +1,11 @@
+services:
+
+    Goat\Dispatcher\Command\DispatcherRunCommand:
+        public: false
+        arguments: ["@goat.dispatcher", "@goat.message_broker"]
+        tags: ["console.command"]
+
+    Goat\Dispatcher\Command\DispatcherPushCommand:
+        public: false
+        arguments: ["@goat.dispatcher", "@normalization.serializer", "@normalization.name_map"]
+        tags: ["console.command"]

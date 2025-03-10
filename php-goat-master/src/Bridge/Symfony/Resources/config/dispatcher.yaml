@@ -1,0 +1,32 @@
+services:
+
+    goat.dispatcher.handler_locator.default:
+        public: false
+        class: Goat\Dispatcher\HandlerLocator\DefaultHandlerLocator
+
+    goat.dispatcher.handler_locator:
+        alias: goat.dispatcher.handler_locator.default
+
+    Goat\Dispatcher\HandlerLocator:
+        alias: goat.dispatcher.handler_locator
+
+    # Override or decorate this service depending upon your own needs.
+    goat.dispatcher.retry_strategy:
+        public: false
+        class: Goat\Dispatcher\RetryStrategy\DefaultRetryStrategy
+
+    goat.dispatcher:
+        public: false
+        class: Goat\Dispatcher\DefaultDispatcher
+        arguments: ['@goat.dispatcher.handler_locator', '@goat.message_broker']
+        tags: [{ name: "monolog.logger", channel: "goat_dispatcher" }]
+
+    goat.transaction_handler.goat:
+        public: false
+        class: Goat\Dispatcher\GoatTransactionHandler
+        arguments: ['@goat.runner.default']
+        tags: [{ name: "goat.transaction_handler" }]
+
+    Goat\Dispatcher\Dispatcher:
+        public: true
+        alias: goat.dispatcher
