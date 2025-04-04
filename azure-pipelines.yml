@@ -26,5 +26,5 @@ steps:
     CheckmarxService: 'CxSASTLocalMachine'
     enableSastBranching: false
     incScan: false
-    enablePolicyViolations: false
+    enablePolicyViolations: true
     enableDependencyScan: false
