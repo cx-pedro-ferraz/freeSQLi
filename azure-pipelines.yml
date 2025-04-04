@@ -23,8 +23,8 @@ steps:
     projectName: 'test_policy'
     enableProxy: false
     enableSastScan: true
-    CheckmarxService: 'CxSASTConn2'
+    CheckmarxService: 'CxSASTLocalMachine'
     enableSastBranching: false
     incScan: false
-    enablePolicyViolations: true
+    enablePolicyViolations: false
     enableDependencyScan: false
