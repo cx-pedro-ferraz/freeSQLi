@@ -26,3 +26,8 @@ jobs:
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: cx_result.sarif
+      - name: Upload XML Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: cx_result.sarif
+          path: cx_result.sarif
