@@ -27,7 +27,7 @@ jobs:
         with:
           sarif_file: cx_result.sarif
       - name: Upload XML Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cx_result.sarif
           path: cx_result.sarif
