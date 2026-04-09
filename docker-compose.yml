@@ -1,4 +1,4 @@
-version: '3'
+version: '3' 
 services:
   magento:
     image: artifactory.rch.cloud/magento-images/php:8.1-apache-dev
